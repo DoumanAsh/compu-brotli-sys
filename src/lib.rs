@@ -7,9 +7,8 @@
 #![allow(non_snake_case)]
 
 
-pub type size_t = libc::c_ulonglong;
 pub type brotli_alloc_func = ::core::option::Option<
-    unsafe extern "C" fn(opaque: *mut libc::c_void, size: size_t) -> *mut libc::c_void,
+    unsafe extern "C" fn(opaque: *mut libc::c_void, size: usize) -> *mut libc::c_void,
 >;
 pub type brotli_free_func = ::core::option::Option<
     unsafe extern "C" fn(opaque: *mut libc::c_void, address: *mut libc::c_void),
@@ -59,16 +58,16 @@ extern "C" {
     pub fn BrotliEncoderDestroyInstance(state: *mut BrotliEncoderState);
 }
 extern "C" {
-    pub fn BrotliEncoderMaxCompressedSize(input_size: size_t) -> size_t;
+    pub fn BrotliEncoderMaxCompressedSize(input_size: usize) -> usize;
 }
 extern "C" {
     pub fn BrotliEncoderCompress(
         quality: libc::c_int,
         lgwin: libc::c_int,
         mode: BrotliEncoderMode,
-        input_size: size_t,
+        input_size: usize,
         input_buffer: *const u8,
-        encoded_size: *mut size_t,
+        encoded_size: *mut usize,
         encoded_buffer: *mut u8,
     ) -> libc::c_int;
 }
@@ -76,11 +75,11 @@ extern "C" {
     pub fn BrotliEncoderCompressStream(
         state: *mut BrotliEncoderState,
         op: BrotliEncoderOperation,
-        available_in: *mut size_t,
+        available_in: *mut usize,
         next_in: *mut *const u8,
-        available_out: *mut size_t,
+        available_out: *mut usize,
         next_out: *mut *mut u8,
-        total_out: *mut size_t,
+        total_out: *mut usize,
     ) -> libc::c_int;
 }
 extern "C" {
@@ -90,7 +89,7 @@ extern "C" {
     pub fn BrotliEncoderHasMoreOutput(state: *mut BrotliEncoderState) -> libc::c_int;
 }
 extern "C" {
-    pub fn BrotliEncoderTakeOutput(state: *mut BrotliEncoderState, size: *mut size_t) -> *const u8;
+    pub fn BrotliEncoderTakeOutput(state: *mut BrotliEncoderState, size: *mut usize) -> *const u8;
 }
 extern "C" {
     pub fn BrotliEncoderVersion() -> u32;
@@ -180,27 +179,27 @@ extern "C" {
 }
 extern "C" {
     pub fn BrotliDecoderDecompress(
-        encoded_size: size_t,
+        encoded_size: usize,
         encoded_buffer: *const u8,
-        decoded_size: *mut size_t,
+        decoded_size: *mut usize,
         decoded_buffer: *mut u8,
     ) -> BrotliDecoderResult;
 }
 extern "C" {
     pub fn BrotliDecoderDecompressStream(
         state: *mut BrotliDecoderState,
-        available_in: *mut size_t,
+        available_in: *mut usize,
         next_in: *mut *const u8,
-        available_out: *mut size_t,
+        available_out: *mut usize,
         next_out: *mut *mut u8,
-        total_out: *mut size_t,
+        total_out: *mut usize,
     ) -> BrotliDecoderResult;
 }
 extern "C" {
     pub fn BrotliDecoderHasMoreOutput(state: *const BrotliDecoderState) -> libc::c_int;
 }
 extern "C" {
-    pub fn BrotliDecoderTakeOutput(state: *mut BrotliDecoderState, size: *mut size_t) -> *const u8;
+    pub fn BrotliDecoderTakeOutput(state: *mut BrotliDecoderState, size: *mut usize) -> *const u8;
 }
 extern "C" {
     pub fn BrotliDecoderIsUsed(state: *const BrotliDecoderState) -> libc::c_int;

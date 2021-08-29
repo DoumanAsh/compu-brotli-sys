@@ -65,6 +65,7 @@ fn generate_lib() {
                                               .use_core()
                                               .generate_comments(false)
                                               .layout_tests(false)
+                                              .size_t_is_usize(true)
                                               .allowlist_type("[bB]rotli.+")
                                               .allowlist_type("BROTLI.+")
                                               .allowlist_function("[bB]rotli.+")
