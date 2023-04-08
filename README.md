@@ -6,3 +6,5 @@
 
 Bindings to brotli.
 Crate version corresponds to [brotli](https://github.com/google/brotli) C implementation
+
+Version 1.0.10 corresponds to C 1.0.9 because cargo is retarded and cannot handle two packages with the same version even if you yank old one

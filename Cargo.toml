@@ -1,6 +1,6 @@
 [package]
 name = "compu-brotli-sys"
-version = "1.0.9+1"
+version = "1.0.10"
 authors = ["Douman <douman@gmx.se>"]
 edition = "2018"
 keywords = ["brotli"]
@@ -14,7 +14,7 @@ version = "0.2"
 default-features = false
 
 [build-dependencies.bindgen]
-version = "0.59"
+version = "0.64"
 optional = true
 
 [build-dependencies]
