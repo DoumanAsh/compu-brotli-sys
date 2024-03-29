@@ -89,6 +89,7 @@ fn build() {
 
     cc::Build::new().include("brotli/c/include")
                     .warnings(false)
+                    .file("brotli/c/common/shared_dictionary.c")
                     .file("brotli/c/common/constants.c")
                     .file("brotli/c/common/context.c")
                     .file("brotli/c/common/dictionary.c")
@@ -98,6 +99,7 @@ fn build() {
                     .file("brotli/c/dec/decode.c")
                     .file("brotli/c/dec/huffman.c")
                     .file("brotli/c/dec/state.c")
+                    .file("brotli/c/enc/compound_dictionary.c")
                     .file("brotli/c/enc/backward_references.c")
                     .file("brotli/c/enc/backward_references_hq.c")
                     .file("brotli/c/enc/bit_cost.c")
