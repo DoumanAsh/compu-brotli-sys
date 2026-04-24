@@ -1,6 +1,6 @@
 # コンプ(compu) brotli bindings
 
-[![Actions Status](https://github.com/DoumanAsh/compu-brotli-sys/workflows/Rust/badge.svg)](https://github.com/DoumanAsh/compu-brotli-sys/actions)
+[![Rust](https://github.com/DoumanAsh/compu-brotli-sys/actions/workflows/rust.yml/badge.svg)](https://github.com/DoumanAsh/compu-brotli-sys/actions/workflows/rust.yml)
 [![Crates.io](https://img.shields.io/crates/v/compu-brotli-sys.svg)](https://crates.io/crates/compu-brotli-sys)
 [![Documentation](https://docs.rs/compu-brotli-sys/badge.svg)](https://docs.rs/crate/compu-brotli-sys/)
 
