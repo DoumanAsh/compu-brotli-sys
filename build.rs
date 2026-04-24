@@ -99,6 +99,9 @@ fn build() {
                     .file("brotli/c/dec/decode.c")
                     .file("brotli/c/dec/huffman.c")
                     .file("brotli/c/dec/state.c")
+                    .file("brotli/c/dec/prefix.c")
+                    .file("brotli/c/dec/state.c")
+                    .file("brotli/c/dec/static_init.c")
                     .file("brotli/c/enc/compound_dictionary.c")
                     .file("brotli/c/enc/backward_references.c")
                     .file("brotli/c/enc/backward_references_hq.c")
@@ -118,7 +121,9 @@ fn build() {
                     .file("brotli/c/enc/literal_cost.c")
                     .file("brotli/c/enc/memory.c")
                     .file("brotli/c/enc/metablock.c")
+                    .file("brotli/c/enc/static_init.c")
                     .file("brotli/c/enc/static_dict.c")
+                    .file("brotli/c/enc/static_dict_lut.c")
                     .file("brotli/c/enc/utf8_util.c")
                     .compile("libbrotli.a");
 }
